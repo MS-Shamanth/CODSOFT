@@ -25,6 +25,7 @@ async function fetchGenres() {
             genreDropdown.append(new Option(genre.name, genre.id));
         });
     } catch (error) {
+        console.error('Error fetching genres:', error);
         alert('Failed to load genres. Please try again later.');
     }
 }
@@ -38,6 +39,7 @@ async function fetchLanguages() {
             languageDropdown.append(new Option(language.english_name, language.iso_639_1));
         });
     } catch (error) {
+        console.error('Error fetching languages:', error);
         alert('Failed to load languages. Please try again later.');
     }
 }
@@ -75,6 +77,7 @@ async function fetchRecommendations(genreId, languageCode) {
 
         recommendationsDiv.style.display = 'block';
     } catch (error) {
+        console.error('Error fetching recommendations:', error);
         alert('Failed to load recommendations. Please try again later.');
     }
 }
