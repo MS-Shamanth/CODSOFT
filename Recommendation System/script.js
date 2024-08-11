@@ -39,6 +39,19 @@ async function fetchLanguages() {
     }
 }
 
+const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MmI5NWZiYmVhOGU5OTAxOWYxODQ2OTM1NDE4Y2NiMyIsIm5iZiI6MTcyMzM5ODI4OS4xMzMxNywic3ViIjoiNjZiMzY4ODA3ZDQyNTdkYTAyNDUyYTFiIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.f_5-lqUGHlMagBNHr1dXycy6zhAhQrAPFp7QrkG3Dso'
+    }
+  };
+  
+  fetch('https://api.themoviedb.org/3/authentication', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+
 async function fetchRecommendations(genreId, languageCode) {
     try {
         let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;
